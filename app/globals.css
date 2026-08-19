@@ -87,10 +87,10 @@
   --animate-third: moveInCircle 40s linear infinite;
   --animate-fourth: moveHorizontal 40s ease infinite;
   --animate-fifth: moveInCircle 20s ease infinite;
-  --animate-scroll:
-    scroll var(--animation-duration, 40s)
-    var(--animation-direction, forwards)
-    linear infinite;
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+  --animate-scroll-up: scroll-up 12s linear infinite;
+  --animate-scroll-down: scroll-down 12s linear infinite;
 }
 
 /* =========================
@@ -164,6 +164,24 @@
 @keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+@keyframes scroll-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - 6px));
+  }
+}
+
+@keyframes scroll-down {
+  from {
+    transform: translateY(calc(-50% - 6px));
+  }
+  to {
+    transform: translateY(0);
   }
 }
 

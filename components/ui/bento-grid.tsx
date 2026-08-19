@@ -1,5 +1,15 @@
-import { cn } from "@/lib/utils";
+"use client"
+
+import { useState } from "react";
+import { IoCopyOutline } from "react-icons/io5";
+import Lottie from "react-lottie"
+
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
+import { GridGlobe } from "./grid-globe";
+
+import { cn } from "@/lib/utils";
+import animationData from "@/data/confetti.json";
+import MagicButton from "./magic-button";
 
 export const BentoGrid = ({
   className,
@@ -40,11 +50,22 @@ export const BentoGridItem = ({
   titleClassName?: string;
   imgClassName?: string;
   spareImg?: string;
-}) => {
+}) => {  
+  const leftItems = ["JavaScript", "ReactJS", "NextJS", "Express", "NodeJS"];
+  const rightItems = ["MySQL", "MongoDB", "Python", "FastAPI", "GitHub", "HttPie"];
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('ayanpurkait82@gmail.com')
+    setCopied(true);
+  }
+
+
   return (
     <div
       className={cn(
-        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 relative rounded-3xl border border-neutral-200 bg-white p-4 transition duration-200 hover:shadow-xl dark:border-white/20 dark:bg-black dark:shadow-none ",
+        "row-span-1 relative overflow-hidden rounded-3xl group/bento transition duration-200 shadow-input hover:shadow-xl dark:shadow-none flex flex-col justify-between space-y-4 border border-white/10",
         className,
       )}
 
@@ -53,7 +74,7 @@ export const BentoGridItem = ({
         backgroundColor: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)"
       }}>
 
-      <div className={`${id === 5 && 'flex justify-center'} h-full`}>
+      <div className={`${id === 6 && 'flex justify-center'} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -84,22 +105,85 @@ export const BentoGridItem = ({
         )}
 
         <div className={cn(
-          titleClassName, 'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10'
+          titleClassName, 
+          'group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10'
         )}>
-        </div>
 
+          <div className="font-sans font-extralight text-white-200 text-sm md:text-xs lg:text-base z-10">
+            {description}
+          </div>
+
+          <div className="font-sans font-bold text-lg lg:text-3xl max-w-96 z-10">
+            {title}
+          </div>
+
+
+          {id === 2 && <GridGlobe/>}
+
+          {id === 3 && (
+            <div className="flex gap-1 lg:gap-3 w-fit absolute -right-1 lg:right-0">
+
+              {/* Bottom → Top */}
+              <div className="h-100 overflow-hidden">
+                <div className="animate-scroll-up">
+                  {[...leftItems, ...leftItems].map((item, index) => (
+                    <span
+                      key={`${item}-${index}`}
+                      className="mb-3 block px-3 py-2 lg:py-4 lg:px-3
+                        text-xs lg:text-base opacity-50 lg:opacity-70
+                        rounded-lg text-center bg-[#10132E]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Top → Bottom */}
+              <div className="h-100 overflow-hidden">
+                <div className="animate-scroll-down">
+                  {[...rightItems, ...rightItems].map((item, index) => (
+                    <span
+                      key={`${item}-${index}`}
+                      className="mb-3 block px-3 py-2 lg:py-4 lg:px-3
+                        text-xs lg:text-base opacity-50 lg:opacity-70
+                        rounded-lg text-center bg-[#10132E]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          )}
+
+          {id === 6 && (
+            <div className="mt-5 relative">
+              <div className="absolute -bottom-5 right-0">
+                <Lottie 
+                  options={{
+                    loop: false,
+                    autoplay: false,
+                    animationData,
+                    rendererSettings: {
+                      preserveAspectRatio: "xMidYMid slice",
+                    }}}
+                />
+              </div>
+
+                <MagicButton
+                  title={copied ? "Email copied" : "Copy my email"}
+                  icon={<IoCopyOutline />}
+                  position="left"
+                  otherClasses="!bg-[#161a31]"
+                  handleClick={handleCopy}
+                />
+            </div>
+          )}
+
+        </div>
       </div>
-
-      <div className="transition duration-200 group-hover/bento:translate-x-2">
-        <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
-          {title}
-        </div>
-        <div className="font-sans text-xs font-normal text-neutral-600 dark:text-neutral-300">
-          {description}
-        </div>
-      </div>
-
-      
     </div>
   );
 };
