@@ -66,9 +66,6 @@ const Hero = () => {
           </a>
         </div>
       </div>
-
-
-
     </div>
   );
 };
