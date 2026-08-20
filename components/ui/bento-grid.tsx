@@ -98,9 +98,6 @@ export const BentoGridItem = ({
 
         {id === 6 && (
           <BackgroundGradientAnimation>
-            <div className="absolute z-50 flex justify-center
-              items-center text-white font-bold"
-            />
           </BackgroundGradientAnimation>
         )}
 
@@ -163,12 +160,13 @@ export const BentoGridItem = ({
               <div className="absolute -bottom-5 right-0">
                 <Lottie 
                   options={{
-                    loop: false,
-                    autoplay: false,
+                    loop: copied,
+                    autoplay: copied,
                     animationData,
                     rendererSettings: {
                       preserveAspectRatio: "xMidYMid slice",
-                    }}}
+                    }
+                  }}
                 />
               </div>
 
