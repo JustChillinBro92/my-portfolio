@@ -28,11 +28,11 @@ const Approach = () => {
         </Card>
 
         <Card 
-           title="Development & Progress Update" 
-           icon={<AceternityIcon order="Phase 2"/>}
-           des="Once we agree on the plan, I cue my lofi playlist and dive into
-           coding. From initial sketches to polished code, I keep you updated
-           every step of the way."
+          title="Development & Progress Update" 
+          icon={<AceternityIcon order="Phase 2"/>}
+          des="Once we agree on the plan, I cue my lofi playlist and dive into
+          coding. From initial prototype to polished features, I keep you updated 
+          at every step."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -48,7 +48,7 @@ const Approach = () => {
         <Card 
           title="Development & Launch" 
           icon={<AceternityIcon order="Phase 3"/>}
-          des="Based on the approved design, I'll translate everything into 
+          des="This is where the actual work begins! Based on the approved design, I'll translate everything into 
           functional code, building your website from the ground up."
         >
           <CanvasRevealEffect
@@ -79,7 +79,7 @@ const Card = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="border border-black/20 group/canvas-card flex items-center justify-center 
-    dark:border-white/20  max-w-sm w-full mx-auto p-4 relative lg:h-140 rounded-3xl cursor-pointer"
+    dark:border-white/20  max-w-sm w-full mx-auto p-4 relative lg:h-140 cursor-pointer"
     >
       <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
       <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
@@ -105,11 +105,11 @@ const Card = ({
           w-full  mx-auto flex items-center justify-center">
           {icon}
         </div>
-        <h2 className="dark:text-white text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+        <h2 className="dark:text-white text-2xl md:text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
           {title}
         </h2>
-        <p className="dark:text-white text-xs text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-            {des}
+        <p className="dark:text-white text-[0.95rem] text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+          {des}
         </p>
       </div>
     </div>
