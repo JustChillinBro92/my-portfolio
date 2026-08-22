@@ -25,8 +25,11 @@ const RecentProjects = () => {
                                 <img src="/bg.png" alt="bg-img" />
                             </div>
                             <img 
-                                src={item.img} alt={item.title} 
-                                className="z-10 absolute bottom-0"
+                                src={item.img} 
+                                alt={item.title} 
+                                height={530}
+                                width={530}
+                                className="z-10 absolute bottom-0 rounded-t-2xl"
                             />
                         </div>
 
@@ -36,7 +39,7 @@ const RecentProjects = () => {
                         </h1>
 
                         <p className="lg:text-xl lg:font-normal font-light
-                            text-sm line-clamp-2 mt-2">
+                            text-sm line-clamp-3 mt-2">
                             {item.des}
                         </p>
 

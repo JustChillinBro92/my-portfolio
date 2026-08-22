@@ -1,6 +1,5 @@
 import { FaLocationArrow } from "react-icons/fa"
 import MagicButton from "./ui/magic-button"
-import { time } from "console"
 import { socialMedia } from "@/data"
 
 const Footer = () => {
@@ -51,14 +50,20 @@ const Footer = () => {
                     <div key={item.id} className="w-10 h-10 cursor-pointer
                         flex justify-center items-center backdrop-filter
                         backdrop-blur-xl saturate-100 bg-black-300/50 
-                        rounded-lg border border-black-200" 
+                        rounded-lg border border-black-200 hover:bg-black-300" 
                     >
-                        <img 
-                            src={item.img} 
-                            alt="social"
-                            height={20} 
-                            width={20}
-                        />
+                        <a 
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img 
+                                src={item.img} 
+                                alt="social"
+                                height={20} 
+                                width={20}
+                            />
+                        </a>
                     </div>
                 ))}
             </div>
